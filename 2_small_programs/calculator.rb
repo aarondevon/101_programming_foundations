@@ -54,9 +54,25 @@ loop do # main loop
     end
   end
 
+  operator_prompt = <<-MSG
+    What operation would you like to preform
+    1) add
+    2) subtract
+    3) multiply
+    4) divide
+  MSG
 
-  prompt("What operation would you like to preform 1) add 2) subtract 3) multiply 4) divide")
-  operator = Kernel.gets().chomp()
+  prompt(operator_prompt)
+
+operator = ''
+  loop do
+    operator = Kernel.gets().chomp()
+    if %w(1 2 3 4).include?(operator)
+      break
+    else
+      prompt("Must choose 1, 2, 3 or 4")
+    end
+  end
 
   result = case operator
             when '1'
