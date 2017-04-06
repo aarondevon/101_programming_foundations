@@ -1,4 +1,9 @@
 require 'json'
+
+file = File.read('bonus_calculator_messages.json')
+
+MESSAGES = JSON.parse(file)
+LANGUAGE = 'en'
 # ask user for two numbers
 # ask the user for an operation to perform
 # perform the operattion
@@ -10,6 +15,10 @@ require 'json'
 
 def prompt(message)
   Kernel.puts("=> #{message}")
+end
+
+def messages(message, lang='en')
+  "#{MESSAGES[lang][message]}"
 end
 
 def valid_number?(input)
@@ -38,51 +47,47 @@ def operation_to_message(op)
     word
 end
 
-file = File.read('bonus_calculator.json')
-
-messages_hash = JSON.parse(file)
-
-prompt(messages_hash['welcome'])
+prompt(messages('welcome', LANGUAGE))
 
 name = ''
 loop do
   name = Kernel.gets.chomp()
 
   if name.empty?
-    prompt(messages_hash['valid_name'])
+    prompt(messages('valid_name', LANGUAGE))
   else
     break
   end
 end
 
-prompt(messages_hash['hi_name'])
+prompt("#{messages('hi_name', LANGUAGE)} #{name}")
 
 loop do # main loop
   number1 = ''
   loop do
-    prompt(messages_hash['first_number'])
+    prompt(messages('first_number', LANGUAGE))
     number1 = Kernel.gets().chomp()
 
     if valid_number?(number1)
       break
     else
-      prompt(messages_hash['number_error'])
+      prompt(messages()['number_error'])
     end
   end
 
   number2 = ''
   loop do
-    prompt(messages_hash['second_number'])
+    prompt(messages('second_number', LANGUAGE))
     number2 = Kernel.gets().chomp()
 
     if valid_number?(number2)
       break
     else
-      prompt(messages_hash['number_error'])
+      prompt(messages('number_error', LANGUAGE))
     end
   end
 
-  prompt(messages_hash['operator_prompt'])
+  prompt(messages('operator_prompt', LANGUAGE))
 
   operator = ''
   loop do
@@ -90,7 +95,7 @@ loop do # main loop
     if %w(1 2 3 4).include?(operator)
       break
     else
-      prompt(messages_hash['operation_error'])
+      prompt(messages('operation_error', LANGUAGE))
     end
   end
 
@@ -107,9 +112,9 @@ loop do # main loop
              number1.to_f() / number2.to_f()
            end
 
-  prompt("#{messages_hash['result']} #{result}")
+  prompt("#{messages('result', LANGUAGE)} #{result}")
 
-  prompt(messages_hash['another_calculation'])
+  prompt(messages('another_calculation', LANGUAGE))
 
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
