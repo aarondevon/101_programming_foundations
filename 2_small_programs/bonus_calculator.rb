@@ -71,7 +71,7 @@ loop do # main loop
     if valid_number?(number1)
       break
     else
-      prompt(messages()['number_error'])
+      prompt(messages('number_error', LANGUAGE))
     end
   end
 
