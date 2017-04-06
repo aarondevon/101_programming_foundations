@@ -16,14 +16,12 @@ LANGUAGE = 'eng'
 
 # reference Kernel module and use parentheses () for methods
 
-
-
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def messages(message, lang='eng')
-  "#{MESSAGES[lang][message]}"
+  MESSAGES[lang][message].to_s
 end
 
 def valid_number?(input)
@@ -49,7 +47,7 @@ def operation_to_message(op)
          when '4'
            messages('dividing', LANGUAGE)
          end
-    word
+  word
 end
 
 prompt(messages('welcome', LANGUAGE))
