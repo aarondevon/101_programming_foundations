@@ -26,11 +26,11 @@ def valid_number?(input)
 end
 
 def integer?(input)
-  num == num.to_i.to_s
+  input == input.to_i.to_s
 end
 
 def float?(input)
-  num == num.to_f.to_s
+  input == input.to_f.to_s
 end
 
 def operation_to_message(op)
