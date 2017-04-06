@@ -1,17 +1,70 @@
 {
-"en":{
+"eng":{
   "welcome":"Welcome to Calculator! Enter your name:",
   "hi_name":"Hi",
-    "valid_name":"Make sure to use a valid name.",
-    "first_number":"What's the first number?",
-    "number_error":"hmm... that doesn't look like a valid number",
-    "second_number":"What's the second number?",
-    "operator_prompt":"What operation would you like to preform\n1) add\n2) subtract\n3) multiply\n4) divide",
-    "operation_error":"Must choose 1, 2, 3 or 4",
-    "result":"The result is",
-    "another_calculation":"Do you want to perform another calculation? Y to calculate again"
+  "valid_name":"Make sure to use a valid name.",
+  "first_number":"What's the first number?",
+  "number_error":"hmm... that doesn't look like a valid number",
+  "second_number":"What's the second number?",
+  "operator_prompt":"What operation would you like to preform\n1) add\n2) subtract\n3) multiply\n4) divide",
+  "operation_error":"Must choose 1, 2, 3 or 4",
+  "result":"The result is",
+  "another_calculation":"Do you want to perform another calculation? Y to calculate again:",
+  "two_number":"the two numbers...",
+  "adding":"Adding",
+  "subtracting":"Subtracting",
+  "multiplying":"Multiplying",
+  "dividing":"Dividing"
   },
-  "sp":{
-    "welcome": "Bienvenido a Calculadora! Introduzca su nombre:"
+  "esl":{
+    "welcome": "Bienvenido a Calculadora! Introduzca su nombre:",
+    "hi_name":"Hola",
+    "valid_name":"Asegúrese de utilizar un nombre válido.",
+    "first_number":"¿Cual es el primer numero?",
+    "number_error":"Hmm ... que no parece un número válido",
+    "second_number":"¿Cuál es el segundo número?",
+    "operator_prompt":"¿Qué operación le gustaría preformar?\n1) añadir\n2) sustraer\n3) multiplicar\n4) dividir",
+    "operation_error":"Debe elegir 1, 2, 3 or 4",
+    "result":"El resultado es",
+    "another_calculation":"¿Desea realizar otro cálculo? Y para calcular de nuevo:",
+    "two_number":"los dos números...",
+    "adding":"Añadiendo",
+    "subtracting":"Restando",
+    "multiplying":"Multiplicando",
+    "dividing":"divisor"
+  },
+  "ger":{
+    "welcome":"Willkommen bei Taschenrechner! Gib deinen Namen ein:",
+    "hi_name":"Hallo",
+    "valid_name":"Achten Sie darauf, einen gültigen Namen zu verwenden.",
+    "first_number":"Was ist die erste Nummer?",
+    "number_error":"Hmm ... das sieht nicht wie eine gültige nummer aus",
+    "second_number":"Was ist die zweite Nummer?",
+    "operator_prompt":"Welche Operation möchten Sie vorbereiten?\n1) hinzufügen\n2) subtrahieren\n3) multiplizieren\n4) Teilen",
+    "operation_error":"Muss wählen 1, 2, 3 or 4",
+    "result":"Das Ergebnis ist",
+    "another_calculation":"Möchten Sie eine weitere Berechnung durchführen? Y wieder zu berechnen:",
+    "two_number":"die beiden zahlen...",
+    "adding":"Hinzufügen",
+    "subtracting":"Subtrahieren",
+    "multiplying":"Multiplizieren",
+    "dividing":"Teilung"
+  },
+  "frn":{
+    "welcome":"Bienvenue dans Calculator! Entrez votre nom:",
+    "hi_name":"salut",
+    "valid_name":"Assurez-vous d'utiliser un nom valide.",
+    "first_number":"Quel est le premier numéro?",
+    "number_error":"Hmm ... ça ne ressemble pas à un nombre valide",
+    "second_number":"Quel est le deuxième numéro?",
+    "operator_prompt":"Quelle opération voudriez-vous préformer?\n1) ajouter\n2) soustraire\n3) multiplier\n4) diviser",
+    "operation_error":"Doit choisir 1, 2, 3 or 4",
+    "result":"Le résultat est",
+    "another_calculation":"Voulez-vous effectuer un autre calcul? Y pour calculer à nouveau:",
+    "two_number":"les deux nombres...",
+    "adding":"En ajouter",
+    "subtracting":"En soustrayant",
+    "multiplying":"En multipliant",
+    "dividing":"En partage"
   }
 }
