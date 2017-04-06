@@ -1,3 +1,4 @@
+require 'json'
 # ask user for two numbers
 # ask the user for an operation to perform
 # perform the operattion
@@ -37,55 +38,51 @@ def operation_to_message(op)
     word
 end
 
-prompt("Welcome to Calculator! Enter your name:")
+file = File.read('bonus_calculator.json')
+
+messages_hash = JSON.parse(file)
+
+prompt(messages_hash['welcome'])
 
 name = ''
 loop do
   name = Kernel.gets.chomp()
 
   if name.empty?
-    prompt("Make sure to use a valid name.")
+    prompt(messages_hash['valid_name'])
   else
     break
   end
 end
 
-prompt("Hi #{name}!")
+prompt(messages_hash['hi_name'])
 
 loop do # main loop
   number1 = ''
   loop do
-    prompt("What's the first number?")
+    prompt(messages_hash['first_number'])
     number1 = Kernel.gets().chomp()
 
     if valid_number?(number1)
       break
     else
-      prompt("hmm... that doesn't look like a valid number")
+      prompt(messages_hash['number_error'])
     end
   end
 
   number2 = ''
   loop do
-    prompt("What's the second number?")
+    prompt(messages_hash['second_number'])
     number2 = Kernel.gets().chomp()
 
     if valid_number?(number2)
       break
     else
-      prompt("hmm... that doesn't look like a valid number")
+      prompt(messages_hash['number_error'])
     end
   end
 
-  operator_prompt = <<-MSG
-    What operation would you like to preform
-    1) add
-    2) subtract
-    3) multiply
-    4) divide
-  MSG
-
-  prompt(operator_prompt)
+  prompt(messages_hash['operator_prompt'])
 
   operator = ''
   loop do
@@ -93,7 +90,7 @@ loop do # main loop
     if %w(1 2 3 4).include?(operator)
       break
     else
-      prompt("Must choose 1, 2, 3 or 4")
+      prompt(messages_hash['operation_error'])
     end
   end
 
@@ -110,9 +107,9 @@ loop do # main loop
              number1.to_f() / number2.to_f()
            end
 
-  prompt("The result is #{result}")
+  prompt("#{messages_hash['result']} #{result}")
 
-  prompt("Do you want to perform another calculation? Y to calculate again")
+  prompt(messages_hash['another_calculation'])
 
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')

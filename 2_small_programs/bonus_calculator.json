@@ -1,0 +1,12 @@
+{
+"welcome":"Welcome to Calculator! Enter your name:",
+"hi_name":"Hi #{name}!",
+  "valid_name":"Make sure to use a valid name.",
+  "first_number":"What's the first number?",
+  "number_error":"hmm... that doesn't look like a valid number",
+  "second_number":"What's the second number?",
+  "operator_prompt":"What operation would you like to preform\n1) add\n2) subtract\n3) multiply\n4) divide",
+  "operation_error":"Must choose 1, 2, 3 or 4",
+  "result":"The result is",
+  "another_calculation":"Do you want to perform another calculation? Y to calculate again"
+}
