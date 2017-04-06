@@ -3,7 +3,12 @@ require 'json'
 file = File.read('bonus_calculator_messages.json')
 
 MESSAGES = JSON.parse(file)
-LANGUAGE = 'en'
+
+# Languages supported are English: eng
+# Spanish: esl
+# German: ger
+# French: frn
+LANGUAGE = 'eng'
 # ask user for two numbers
 # ask the user for an operation to perform
 # perform the operattion
@@ -17,7 +22,7 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def messages(message, lang='en')
+def messages(message, lang='eng')
   "#{MESSAGES[lang][message]}"
 end
 
@@ -36,13 +41,13 @@ end
 def operation_to_message(op)
   word = case op
          when '1'
-           'Adding'
+           messages('adding', LANGUAGE)
          when '2'
-           'Subtracting'
+           messages('subtracting', LANGUAGE)
          when '3'
-           'Multiplying'
+           messages('multiplying', LANGUAGE)
          when '4'
-           'Dividing'
+           messages('dividing', LANGUAGE)
          end
     word
 end
@@ -99,7 +104,7 @@ loop do # main loop
     end
   end
 
-  prompt("#{operation_to_message(operator)} the two numbers...")
+  prompt("#{operation_to_message(operator)} #{messages('two_number', LANGUAGE)}")
 
   result = case operator
            when '1'
