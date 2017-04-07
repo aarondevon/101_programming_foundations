@@ -2,5 +2,5 @@ eng:
   welcome: "Welcome to mortgage and car loan calculator. Please enter your name."
   valid_name: "Make sure to use a valid name."
   hi_name: "Hi"
-  loan_amount: "Please enter in the loan amount:"
+  loan_amount: "Please enter in the loan amount. e.g. 50000.03 or 50000"
   number_error: "hmm... that doesn't look like a valid number"
