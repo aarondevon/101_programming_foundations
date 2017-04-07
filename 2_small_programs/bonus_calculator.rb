@@ -55,12 +55,8 @@ prompt(messages('welcome', LANGUAGE))
 name = ''
 loop do
   name = Kernel.gets.chomp()
-
-  if name.empty?
-    prompt(messages('valid_name', LANGUAGE))
-  else
-    break
-  end
+  break if !name.empty?
+  prompt(messages('valid_name', LANGUAGE))
 end
 
 prompt("#{messages('hi_name', LANGUAGE)} #{name}")
