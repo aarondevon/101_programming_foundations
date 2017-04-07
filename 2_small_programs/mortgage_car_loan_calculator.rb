@@ -45,6 +45,10 @@ def calculate_length_of_loan_months(length_of_loan_years)
   length_of_loan_years * 12
 end
 
+def calculate_monthly_apr(apr)
+  apr / 12
+end
+
 prompt(messages('welcome', LANGUAGE))
 
 name = ''
