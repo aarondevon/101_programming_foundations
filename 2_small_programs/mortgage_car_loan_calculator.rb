@@ -65,6 +65,15 @@ loop do # main loop
   loop do
     apr = gets().chomp()
     break if valid_number?(apr)
+    prompt(messages('number_error', LANGUAGE))
+  end
+
+  prompt(messages('loan_years', LANGUAGE))
+
+  loan_years = ''
+  loop do
+    break if valid_number?(loan_years)
+    prompt(messages('number_error', LANGUAGE))
   end
 
   prompt(messages('another_calculation', LANGUAGE))
