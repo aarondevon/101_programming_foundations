@@ -71,6 +71,8 @@ loop do # main loop
     prompt(messages('number_error', LANGUAGE))
   end
 
+  loan_amount = loan_amount.to_f
+
   prompt(messages('apr', LANGUAGE))
 
   apr = ''
@@ -80,6 +82,8 @@ loop do # main loop
     prompt(messages('number_error', LANGUAGE))
   end
 
+  apr = apr.to_f
+
   prompt(messages('loan_years', LANGUAGE))
 
   loan_years = ''
@@ -87,6 +91,8 @@ loop do # main loop
     break if valid_number?(loan_years)
     prompt(messages('number_error', LANGUAGE))
   end
+
+  loan_years = loan_years.to_f
 
   prompt(messages('another_calculation', LANGUAGE))
 
