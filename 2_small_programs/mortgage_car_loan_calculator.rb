@@ -53,15 +53,23 @@ loop do # main loop
 
   loan_amount= ''
   loop do
-    loan_amount = gets.chomp
+    loan_amount = gets().chomp()
     loan_amount.sub!(/[,]/, '')
     break if valid_number?(loan_amount)
     prompt(messages('number_error', LANGUAGE))
   end
 
+  prompt(messages())
+
+  apr = ''
+  loop do
+    apr = gets().chomp()
+    break if valid_number?(loan_amount)
+  end
+
   prompt(messages('another_calculation', LANGUAGE))
 
-  answer = gets.chomp
+  answer = gets().chomp()
 
   break unless answer.downcase().start_with?('y') == 'y'
 
