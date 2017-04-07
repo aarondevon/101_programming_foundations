@@ -4,3 +4,4 @@ eng:
   hi_name: "Hi"
   loan_amount: "Please enter in the loan amount. e.g. 50000.03 or 50000"
   number_error: "hmm... that doesn't look like a valid number"
+  another_calculation: "Do you want to calculate another loan? Y to calculate again:"
