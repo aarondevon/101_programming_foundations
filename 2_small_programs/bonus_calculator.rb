@@ -21,7 +21,7 @@ def prompt(message)
 end
 
 def messages(message, lang='eng')
-  MESSAGES[lang][message].to_s
+  MESSAGES[lang][message]
 end
 
 def valid_number?(input)
