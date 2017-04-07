@@ -59,12 +59,12 @@ loop do # main loop
     prompt(messages('number_error', LANGUAGE))
   end
 
-  prompt(messages())
+  prompt(messages('apr', LANGUAGE))
 
   apr = ''
   loop do
     apr = gets().chomp()
-    break if valid_number?(loan_amount)
+    break if valid_number?(apr)
   end
 
   prompt(messages('another_calculation', LANGUAGE))
