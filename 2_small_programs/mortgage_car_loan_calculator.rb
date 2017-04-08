@@ -2,11 +2,6 @@ require 'yaml'
 
 MESSAGES = YAML.load_file('mortgage_car_loan_messages.yml')
 
-# Languages supported are
-# English: eng
-# German: ger
-LANGUAGE = 'eng'
-
 # Get users name
 # Get loan amount
 # Get APR
@@ -21,80 +16,82 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def messages(message, lang='eng')
-  MESSAGES[lang][message]
+def messages(message)
+  MESSAGES[message]
 end
 
 def valid_number?(input)
-  integer?(input) || float?(input)
+  !(input.empty?) || input.to_f > 0
 end
 
-def integer?(input)
-  input == input.to_i().to_s()
-end
-
-def float?(input)
-  input == input.to_f().to_s()
+def loan_to_float(loan_amount)
+  loan_amount.to_f
 end
 
 def apr_conversion(apr)
-  apr * 100
+  apr.to_f / 100
 end
 
 def calculate_length_of_loan_months(length_of_loan_years)
-  length_of_loan_years * 12
+  length_of_loan_years.to_i * 12
 end
 
 def calculate_monthly_apr(apr)
-  apr / 12
+  apr_conversion(apr) / 12
 end
 
-prompt(messages('welcome', LANGUAGE))
+def monthly_payment(loan_amount, apr, loan_years)
+  p = loan_to_float(loan_amount)
+  j = calculate_monthly_apr(apr)
+  n = calculate_length_of_loan_months(loan_years)
+  (p * (j / (1 - (1 + j)**(-n)))).round(2)
+end
+
+prompt(messages('welcome'))
 
 name = ''
 loop do
   name = gets().chomp()
   break if !name.empty?()
-  prompt(messages('valid_name', LANGUAGE))
+  prompt(messages('valid_name'))
 end
 
-prompt("#{messages('hi_name', LANGUAGE)} #{name}")
+prompt("#{messages('hi_name')} #{name}")
 
 loop do # main loop
-  prompt(messages('loan_amount', LANGUAGE))
+  prompt(messages('loan_amount'))
 
   loan_amount= ''
   loop do
     loan_amount = gets().chomp()
     loan_amount.sub!(/[,]/, '')
     break if valid_number?(loan_amount)
-    prompt(messages('number_error', LANGUAGE))
+    prompt(messages('number_error'))
   end
 
-  loan_amount = loan_amount.to_f
-
-  prompt(messages('apr', LANGUAGE))
+  prompt(messages('apr'))
 
   apr = ''
   loop do
     apr = gets().chomp()
     break if valid_number?(apr)
-    prompt(messages('number_error', LANGUAGE))
+    prompt(messages('number_error'))
   end
 
-  apr = apr.to_f
-
-  prompt(messages('loan_years', LANGUAGE))
+  prompt(messages('loan_years'))
 
   loan_years = ''
   loop do
+    loan_years = gets.chomp
     break if valid_number?(loan_years)
-    prompt(messages('number_error', LANGUAGE))
+    prompt(messages('number_error'))
   end
 
-  loan_years = loan_years.to_f
+  prompt(messages('calculating'))
 
-  prompt(messages('another_calculation', LANGUAGE))
+  prompt("#{messages('result')}#{monthly_payment(loan_amount, apr, loan_years)}")
+
+  prompt(messages('another_calculation'))
 
   answer = gets().chomp()
 
