@@ -48,7 +48,19 @@ def monthly_payment(loan_amount, apr, loan_years)
   payment.round(2)
 end
 
+def validation_loop()
+  number = ''
+  loop do
+    number = gets.chomp
+    number.sub!(/[,]/, '')
+    break if valid_number?(number)
+    prompt(messages('number_error'))
+  end
+  number
+end
+
 prompt(messages('welcome'))
+
 
 name = ''
 loop do
@@ -62,31 +74,15 @@ prompt("#{messages('hi_name')} #{name}")
 loop do # main loop
   prompt(messages('loan_amount'))
 
-  loan_amount = ''
-  loop do
-    loan_amount = gets().chomp()
-    loan_amount.sub!(/[,]/, '')
-    break if valid_number?(loan_amount)
-    prompt(messages('number_error'))
-  end
+  loan_amount = validation_loop()
 
   prompt(messages('apr'))
 
-  apr = ''
-  loop do
-    apr = gets().chomp()
-    break if valid_number?(apr)
-    prompt(messages('number_error'))
-  end
+  apr = validation_loop()
 
   prompt(messages('loan_years'))
 
-  loan_years = ''
-  loop do
-    loan_years = gets.chomp
-    break if valid_number?(loan_years)
-    prompt(messages('number_error'))
-  end
+  loan_years = validation_loop()
 
   prompt(messages('calculating'))
 
