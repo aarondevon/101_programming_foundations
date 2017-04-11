@@ -21,7 +21,7 @@ def messages(message)
 end
 
 def valid_number?(input)
-  !(input.empty?) || input.to_f > 0
+  input.to_f > 0 && !input.empty?
 end
 
 def loan_to_float(loan_amount)
@@ -61,7 +61,7 @@ prompt("#{messages('hi_name')} #{name}")
 loop do # main loop
   prompt(messages('loan_amount'))
 
-  loan_amount= ''
+  loan_amount = ''
   loop do
     loan_amount = gets().chomp()
     loan_amount.sub!(/[,]/, '')
@@ -96,5 +96,4 @@ loop do # main loop
   answer = gets().chomp()
 
   break unless answer.downcase().start_with?('y') == 'y'
-
 end
