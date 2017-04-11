@@ -44,7 +44,8 @@ def monthly_payment(loan_amount, apr, loan_years)
   p = loan_to_float(loan_amount)
   j = calculate_monthly_apr(apr)
   n = calculate_length_of_loan_months(loan_years)
-  (p * (j / (1 - (1 + j)**(-n)))).round(2)
+  payment = p * (j / (1 - (1 + j)**(-n)))
+  payment.round(2)
 end
 
 prompt(messages('welcome'))
@@ -89,11 +90,13 @@ loop do # main loop
 
   prompt(messages('calculating'))
 
-  prompt("#{messages('result')}#{monthly_payment(loan_amount, apr, loan_years)}")
+  payment = monthly_payment(loan_amount, apr, loan_years)
+
+  prompt("#{messages('result')}#{payment}")
 
   prompt(messages('another_calculation'))
 
   answer = gets().chomp()
 
-  break unless answer.downcase().start_with?('y') == 'y'
+  break unless answer.downcase().start_with?('y')
 end
