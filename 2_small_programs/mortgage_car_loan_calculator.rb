@@ -1,4 +1,5 @@
 require 'yaml'
+require 'pry'
 
 MESSAGES = YAML.load_file('mortgage_car_loan_messages.yml')
 
@@ -61,11 +62,10 @@ end
 
 prompt(messages('welcome'))
 
-
 name = ''
 loop do
   name = gets().chomp()
-  break if !name.empty?()
+  break if !name.empty?() && !name.start_with?(' ')
   prompt(messages('valid_name'))
 end
 
