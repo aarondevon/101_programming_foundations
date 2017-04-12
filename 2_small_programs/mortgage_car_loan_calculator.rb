@@ -21,7 +21,7 @@ def loan_to_float(loan_amount)
   loan_amount.to_f
 end
 
-def apr_conversion(apr)
+def apr_convert_to_decimal(apr)
   apr.to_f / 100
 end
 
@@ -30,7 +30,7 @@ def calculate_length_of_loan_months(length_of_loan_years)
 end
 
 def calculate_monthly_apr(apr)
-  apr_conversion(apr) / 12
+  apr_convert_to_decimal(apr) / 12
 end
 
 def monthly_payment(loan_amount, apr, loan_years)
