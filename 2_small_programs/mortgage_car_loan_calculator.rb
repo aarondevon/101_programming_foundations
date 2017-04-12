@@ -3,14 +3,6 @@ require 'pry'
 
 MESSAGES = YAML.load_file('mortgage_car_loan_messages.yml')
 
-# Get users name
-# Get loan amount
-# Get APR
-# Get loan duration in years
-
-# Calculate monthly interest
-# Calculate loan duration in months
-
 # reference Kernel module and use parentheses () for methods
 
 def prompt(message)
@@ -42,14 +34,15 @@ def calculate_monthly_apr(apr)
 end
 
 def monthly_payment(loan_amount, apr, loan_years)
-  p = loan_to_float(loan_amount)
-  j = calculate_monthly_apr(apr)
-  n = calculate_length_of_loan_months(loan_years)
-  payment = p * (j / (1 - (1 + j)**(-n)))
+  principle = loan_to_float(loan_amount)
+  monthly_apr = calculate_monthly_apr(apr)
+  length_of_loan = calculate_length_of_loan_months(loan_years)
+
+  payment = principle * (monthly_apr / (1 - (1 + monthly_apr)**-length_of_loan))
   payment.round(2)
 end
 
-def validation_loop()
+def validation_loop
   number = ''
   loop do
     number = gets.chomp
