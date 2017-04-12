@@ -1,9 +1,6 @@
 require 'yaml'
-require 'pry'
 
 MESSAGES = YAML.load_file('mortgage_car_loan_messages.yml')
-
-# reference Kernel module and use parentheses () for methods
 
 def prompt(message)
   Kernel.puts("=> #{message}")
