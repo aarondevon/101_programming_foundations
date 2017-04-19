@@ -9,15 +9,15 @@ def win_conditions_one?(first, second)
     first == 'paper' && second == 'rock' ||
     first == 'scissors' && second == 'paper' ||
     first == 'rock' && second == 'lizard' ||
-  first == 'lizard' && second == 'spock'
+    first == 'lizard' && second == 'spock'
 end
 
 def win_conditions_two?(first, second)
   first == 'spock' && second == 'scissors' ||
-  first == 'scissors' && second == 'lizard' ||
-  first == 'lizard' && second == 'paper' ||
-  first == 'paper' && second == 'spock' ||
-  first == 'spock' && second == 'rock'
+    first == 'scissors' && second == 'lizard' ||
+    first == 'lizard' && second == 'paper' ||
+    first == 'paper' && second == 'spock' ||
+    first == 'spock' && second == 'rock'
 end
 
 def display_results(player, computer)
