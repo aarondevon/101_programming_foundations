@@ -19,3 +19,13 @@ def win_conditions_two?(first, second)
   first == 'paper' && second == 'spock' ||
   first == 'spock' && second == 'rock'
 end
+
+def display_results(player, computer)
+  if win_conditions_one?(player, computer) || win_conditions_two?(player, computer)
+    prompt("You won!")
+  elsif win?(computer, player)
+    prompt("Computer won!")
+  else
+    prompt("It's a tie!")
+  end
+end
