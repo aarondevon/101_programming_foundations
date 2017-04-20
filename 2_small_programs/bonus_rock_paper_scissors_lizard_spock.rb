@@ -40,20 +40,21 @@ end
 
 prompt("Welcome to Rock Paper Scissors Lizard Spock")
 prompt("First to 5 wins the game")
+
+choice_prompt = <<-MSG
+Choose one:
+   r = rock
+   p = paper
+   sc = scissors
+   l = lizard
+   sp = spock
+MSG
+
 player_score = 0
 computer_score = 0
 
 loop do
   prompt("Player: #{player_score} Computer: #{computer_score}")
-
-  choice_prompt = <<-MSG
-  Choose one:
-     r = rock
-     p = paper
-     sc = scissors
-     l = lizard
-     sp = spock
-  MSG
 
   choice = ''
   loop do
