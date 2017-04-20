@@ -4,26 +4,19 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def win_conditions_one?(first, second)
-  first == 'rock' && second == 'scissors' ||
-    first == 'paper' && second == 'rock' ||
-    first == 'scissors' && second == 'paper' ||
-    first == 'rock' && second == 'lizard' ||
-    first == 'lizard' && second == 'spock'
-end
+WIN_CONDITIONS = {
+  rock: ['scissors', 'lizard'],
+  paper: ['rock', 'spock'],
+  scissors: ['paper', 'lizard'],
+  lizard: ['spock', 'paper'],
+  spock: ['scissors', 'rock']
 
-def win_conditions_two?(first, second)
-  first == 'spock' && second == 'scissors' ||
-    first == 'scissors' && second == 'lizard' ||
-    first == 'lizard' && second == 'paper' ||
-    first == 'paper' && second == 'spock' ||
-    first == 'spock' && second == 'rock'
-end
+}
 
 def display_results(player, computer)
-  if win_conditions_one?(player, computer) || win_conditions_two?(player, computer)
+  if WIN_CONDITIONS[player.to_sym].include?(computer)
     prompt("You won the round!")
-  elsif win_conditions_one?(computer, player) || win_conditions_two?(computer, player)
+  elsif WIN_CONDITIONS[computer.to_sym].include?(player)
     prompt("Computer won the round!")
   else
     prompt("It's a tie!")
@@ -31,7 +24,7 @@ def display_results(player, computer)
 end
 
 def won_round?(player, computer)
-  win_conditions_one?(player, computer) || win_conditions_two?(player, computer)
+  WIN_CONDITIONS[player.to_sym].include?(computer)
 end
 
 def final_score(player, computer)
@@ -82,7 +75,7 @@ loop do
 
   computer_choice = ["rock", "paper", "scissors", "lizard", "spock"].sample()
 
-  Kernel.puts("You chose: #{choice}; Computer chose: #{computer_choice}")
+  prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
 
   display_results(choice, computer_choice)
 
