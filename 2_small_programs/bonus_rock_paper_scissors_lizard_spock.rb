@@ -1,4 +1,4 @@
-VALID_CHOICES = %w(rock paper scissors lizard spock)
+VALID_CHOICES = %w(r p sc l sp)
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -31,9 +31,18 @@ def display_results(player, computer)
 end
 
 loop do
+  choice_prompt = <<-MSG
+  Choose one:
+     r = rock
+     p = paper
+     sc = scissors
+     l = lizard
+     sp = spock
+  MSG
+
   choice = ''
   loop do
-    prompt("Choose one: #{VALID_CHOICES.join(', ')}")
+    prompt(choice_prompt)
     choice = Kernel.gets().chomp()
 
     if VALID_CHOICES.include?(choice)
@@ -41,6 +50,18 @@ loop do
     else
       prompt("That's not a valid choice.")
     end
+  end
+
+  if choice == 'r'
+    choice = 'rock'
+  elsif choice == 'p'
+    choice = 'paper'
+  elsif choice == 'sc'
+    choice = 'scissors'
+  elsif choice == 'l'
+    choice = 'lizard'
+  elsif choice == 'sp'
+    choice = 'spock'
   end
 
   computer_choice = ["rock", "paper", "scissors", "lizard", "spock"].sample()
