@@ -34,6 +34,10 @@ def won_round?(player, computer)
   win_conditions_one?(player, computer) || win_conditions_two?(player, computer)
 end
 
+def final_score(player, computer)
+  "Final score Player: #{player} Computer: #{computer}"
+end
+
 prompt("Welcome to Rock Paper Scissors Lizard Spock")
 prompt("First to 5 wins the game")
 player_score = 0
@@ -89,9 +93,11 @@ loop do
 
   if player_score == 5
     prompt('You won the game!')
+    prompt(final_score(player_score, computer_score))
     break
   elsif computer_score == 5
     prompt('The computer won the game. Better luck next time.')
+    prompt(final_score(player_score, computer_score))
     break
   end
 end
