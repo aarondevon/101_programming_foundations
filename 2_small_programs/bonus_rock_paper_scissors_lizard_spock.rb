@@ -80,11 +80,18 @@ loop do
   Kernel.puts("You chose: #{choice}; Computer chose: #{computer_choice}")
 
   display_results(choice, computer_choice)
+
   if won_round?(choice, computer_choice)
     player_score += 1
   elsif won_round?(computer_choice, choice)
     computer_score += 1
   end
 
-  break if player_score == 5 || computer_score == 5
+  if player_score == 5
+    prompt('You won the game!')
+    break
+  elsif computer_score == 5
+    prompt('The computer won the game. Better luck next time.')
+    break
+  end
 end
