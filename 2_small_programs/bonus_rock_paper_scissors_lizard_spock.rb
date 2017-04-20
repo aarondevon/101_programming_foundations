@@ -30,7 +30,18 @@ def display_results(player, computer)
   end
 end
 
+def won_round?(player, computer)
+  win_conditions_one?(player, computer) || win_conditions_two?(player, computer)
+end
+
+prompt("Welcome to Rock Paper Scissors Lizard Spock")
+prompt("First to 5 wins the game")
+player_score = 0
+computer_score = 0
+
 loop do
+  prompt("Player: #{player_score} Computer: #{computer_score}")
+
   choice_prompt = <<-MSG
   Choose one:
      r = rock
@@ -69,8 +80,11 @@ loop do
   Kernel.puts("You chose: #{choice}; Computer chose: #{computer_choice}")
 
   display_results(choice, computer_choice)
+  if won_round?(choice, computer_choice)
+    player_score += 1
+  elsif won_round?(computer_choice, choice)
+    computer_score += 1
+  end
 
-  prompt("Do you want to play again?")
-  answer = Kernel.gets().chomp()
-  break unless answer.downcase.start_with?('y')
+  break if player_score == 5 || computer_score == 5
 end
