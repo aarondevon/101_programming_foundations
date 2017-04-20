@@ -22,9 +22,9 @@ end
 
 def display_results(player, computer)
   if win_conditions_one?(player, computer) || win_conditions_two?(player, computer)
-    prompt("You won!")
+    prompt("You won the round!")
   elsif win_conditions_one?(computer, player) || win_conditions_two?(computer, player)
-    prompt("Computer won!")
+    prompt("Computer won the round!")
   else
     prompt("It's a tie!")
   end
