@@ -58,18 +58,18 @@ loop do
   choice = ''
   loop do
     prompt(choice_prompt)
-    choice = Kernel.gets().chomp()
+    choice = Kernel.gets().chomp().downcase()
 
-    if valid_choices.keys.include?(choice.downcase)
+    if valid_choices.keys().include?(choice)
       break
     else
       prompt("That's not a valid choice.")
     end
   end
 
-  choice = valid_choices[choice.downcase]
+  choice = valid_choices[choice]
 
-  computer_choice = valid_choices.values.sample()
+  computer_choice = valid_choices.values().sample()
 
   prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
 
