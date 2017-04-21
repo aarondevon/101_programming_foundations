@@ -1,4 +1,10 @@
-VALID_CHOICES = %w(r p sc l sp)
+valid_choices = {
+   "r" => "rock",
+   "p" => "paper",
+   "sc" => "scissors",
+   "l" => "lizard",
+   "sp" => "spock",
+}
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -54,26 +60,16 @@ loop do
     prompt(choice_prompt)
     choice = Kernel.gets().chomp()
 
-    if VALID_CHOICES.include?(choice)
+    if valid_choices.keys.include?(choice.downcase)
       break
     else
       prompt("That's not a valid choice.")
     end
   end
 
-  if choice == 'r'
-    choice = 'rock'
-  elsif choice == 'p'
-    choice = 'paper'
-  elsif choice == 'sc'
-    choice = 'scissors'
-  elsif choice == 'l'
-    choice = 'lizard'
-  elsif choice == 'sp'
-    choice = 'spock'
-  end
+  choice = valid_choices[choice.downcase]
 
-  computer_choice = ["rock", "paper", "scissors", "lizard", "spock"].sample()
+  computer_choice = valid_choices.values.sample()
 
   prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
 
