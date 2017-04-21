@@ -1,9 +1,9 @@
 valid_choices = {
-   "r" => "rock",
-   "p" => "paper",
-   "sc" => "scissors",
-   "l" => "lizard",
-   "sp" => "spock",
+  "r" => "rock",
+  "p" => "paper",
+  "sc" => "scissors",
+  "l" => "lizard",
+  "sp" => "spock"
 }
 
 def prompt(message)
