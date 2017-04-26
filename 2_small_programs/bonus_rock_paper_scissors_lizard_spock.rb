@@ -1,4 +1,4 @@
-valid_choices = {
+VALID_CHOICES = {
   "r" => "rock",
   "p" => "paper",
   "sc" => "scissors",
@@ -60,16 +60,16 @@ loop do
     prompt(choice_prompt)
     choice = Kernel.gets().chomp().downcase()
 
-    if valid_choices.keys().include?(choice)
+    if VALID_CHOICES.keys().include?(choice)
       break
     else
       prompt("That's not a valid choice.")
     end
   end
 
-  choice = valid_choices[choice]
+  choice = VALID_CHOICES[choice]
 
-  computer_choice = valid_choices.values().sample()
+  computer_choice = VALID_CHOICES.values().sample()
 
   prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
 
