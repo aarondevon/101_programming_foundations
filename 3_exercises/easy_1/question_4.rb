@@ -11,3 +11,5 @@ p numbers.delete_at(1)
 # 2. delete_at will also return what was removed.
 p numbers.delete(1)
 # this will delete 1 fromt he array. delete will also return what was removed.
+
+# Another thing to note is that delete_at and delete mutate the caller instead of creating new modified versions of the object.
