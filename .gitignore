@@ -1,5 +1,6 @@
 .DS_Store
 .vscode/
+.idea
 .idea/vcs.xml
 .idea/encodings.xml
 .idea/intro_to_programming.iml
