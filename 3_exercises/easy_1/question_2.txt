@@ -8,7 +8,7 @@ And explain what would happen in the following scenarios:
 3. put ! after something, like words.uniq!
   ! after a method is actually part of the method name. We do not know for sure what the method does.
 4. put ? before something
-  ? is the ternary operator
+  ? : is the ternary operator for if...else
 5. put ? after something
   ? put after a method is actually part of the method name. We do not know for sure what the method does.
 6. put !! before something, like !!user_name
