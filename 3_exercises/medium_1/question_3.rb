@@ -12,7 +12,12 @@ def factors(number)
   divisors
 end
 
-Alyssa noticed that this will fail if the input is 0, or a negative number, and asked Alan to change the loop. How can you change the loop construct (instead of using begin/end/until) to make this work? Note that we're not looking to find the factors for 0 or negative numbers, but we just want to handle it gracefully instead of raising an exception or going into an infinite loop.
+Alyssa noticed that this will fail if the input is 0, or a negative number,
+and asked Alan to change the loop. How can you change the loop construct
+(instead of using begin/end/until) to make this work? Note that we're not
+looking to find the factors for 0 or negative numbers, but we just want to
+handle it gracefully instead of raising an exception or going into an infinite
+loop.
 =end
 
 def factors(number)
@@ -28,11 +33,15 @@ end
 =begin
 Bonus 1
 What is the purpose of the number % dividend == 0 ?
-  The purpose is to see if number is eaqually divisable by dividend.
-  The modulous operator returns the remainder, therfore if 0 is returend we know that the the number was eaqually divisable by the dividend
+  The purpose is to see if number is equally divisible by dividend.
+  The modulus operator returns the remainder, therefore if 0 is returned we know
+  that the the number was equally divisible by the dividend
 
 Bonus 2
 What is the purpose of the second-to-last line in the method (the divisors
 before the method's end)?
-  While the loop was running it was adding each dividend that did not return a remainder to the array divisors. By placing the array at the end of the method the array will be returned. This means that we will be given all of the factors of the given number.
+  While the loop was running it was adding each dividend that did not return a
+  remainder to the array divisors. By placing the array at the end of the method
+  the array will be returned. This means that we will be given all of the factors
+  of the given number.
 =end
