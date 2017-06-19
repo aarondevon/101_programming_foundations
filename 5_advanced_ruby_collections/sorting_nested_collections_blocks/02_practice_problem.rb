@@ -7,3 +7,9 @@ books = [
   {title: 'War and Peace', author: 'Leo Tolstoy', published: '1869'},
   {title: 'Ulysses', author: 'James Joyce', published: '1922'}
 ]
+
+# Do not need to convert dates to integers because each date is four characters
+# long.
+books.sort_by do |book|
+  book[:published]
+end
