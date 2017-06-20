@@ -14,4 +14,4 @@ hsh1 = {'a' => ['d', 'e'], 'b' => ['f', 'g'], 'c' => ['h', 'i']}
 p hsh1['b'][1]
 
 hsh2 = {first: {'d' => 3}, second: {'e' => 2, 'f' => 1}, third: {'g' => 0}}
-p hsh2[:third].key
+p hsh2[:third].key(0)
