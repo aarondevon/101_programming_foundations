@@ -40,7 +40,9 @@ def prompt_computer_move
   prompt("Now it's the computers turn")
 end
 
-
+def computer_move(board)
+  board[rand(1..9)] = "O"
+end
 
 
 display_game_start
@@ -50,6 +52,10 @@ loop do
 
   prompt_player_move
   player_move(board)
+
+  prompt_computer_move
+
+  computer_move(board)
 
 
   display_board(board)
