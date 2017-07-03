@@ -1,3 +1,7 @@
+def prompt(str)
+  puts "==> #{str}"
+end
+
 def display_game_start
   puts "Let's play Tic Tac Toe!"
 end
@@ -18,8 +22,17 @@ def display_board
   puts ""
 end
 
-def board
+def board()
   [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 end
 
-display_board
+def prompt_player_move
+  prompt("Please make your move")
+end
+
+
+display_game_start
+
+loop do
+  display_board
+end
