@@ -24,10 +24,6 @@ def display_board(board)
   puts ""
 end
 
-# def board(board)
-#   [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-# end
-
 def prompt_player_move
   prompt("Enter a number 1-9 to place your X")
 end
@@ -39,6 +35,11 @@ end
 def player_move(board)
   board[player_position] = "X"
 end
+
+def prompt_computer_move
+  prompt("Now it's the computers turn")
+end
+
 
 
 
