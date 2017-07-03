@@ -1,3 +1,7 @@
+def display_game_start
+  puts "Let's play Tic Tac Toe!"
+end
+
 def display_board
   puts ""
   puts "     |     |     "
@@ -17,4 +21,5 @@ end
 def board
   [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 end
-  display_board
+
+display_board
