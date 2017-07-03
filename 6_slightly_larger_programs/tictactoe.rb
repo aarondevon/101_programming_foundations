@@ -19,7 +19,7 @@ def display_board(board)
   puts "     |     |     "
   puts "-----+-----+-----"
   puts "     |     |     "
-  puts "  #{board[6]}  |  #{board[7]}  |  #{board[7]}  "
+  puts "  #{board[6]}  |  #{board[7]}  |  #{board[8]}  "
   puts "     |     |     "
   puts ""
 end
@@ -32,8 +32,8 @@ def player_position
   gets.chomp.to_i
 end
 
-def player_move(board)
-  board[player_position] = "X"
+def player_move(board, position)
+  board[position - 1] = "X"
 end
 
 def prompt_computer_move
@@ -44,6 +44,10 @@ def computer_move(board)
   board[rand(1..9)] = "O"
 end
 
+def valid_move?(board, position)
+  board[position] == " " && (position > 0 && position < 10)
+end
+
 
 display_game_start
 
@@ -51,7 +55,14 @@ loop do
   display_board(board)
 
   prompt_player_move
-  player_move(board)
+  loop do
+    position = player_position
+    if valid_move?(board, position)
+      player_move(board, position)
+      break
+    end
+    prompt("Enter a valid position")
+  end
 
   prompt_computer_move
 
