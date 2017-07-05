@@ -33,7 +33,7 @@ def player_position
 end
 
 def player_move(board, position)
-  board[position - 1] = "X"
+  board[position] = "X"
 end
 
 def prompt_computer_move
@@ -41,7 +41,7 @@ def prompt_computer_move
 end
 
 def computer_move(board)
-  board[rand(1..9)] = "O"
+  board[rand(0..8)] = "O"
 end
 
 def valid_move?(board, position)
@@ -56,7 +56,8 @@ loop do
 
   prompt_player_move
   loop do
-    position = player_position
+    position = player_position - 1
+    p board[position] == " " && (position > 0 && position < 10)
     if valid_move?(board, position)
       player_move(board, position)
       break
