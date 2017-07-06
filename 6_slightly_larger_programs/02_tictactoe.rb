@@ -1,3 +1,7 @@
+def prompt(msg)
+  puts "=> "
+end
+
 def display_board(brd)
   puts ""
   puts "     |     |     "
