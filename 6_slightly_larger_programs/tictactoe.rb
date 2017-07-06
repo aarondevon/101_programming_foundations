@@ -40,14 +40,13 @@ def prompt_computer_move
   prompt("Now it's the computers turn")
 end
 
-def computer_move(board)
-  board[rand(0..8)] = "O"
+def computer_move(board, position)
+  board[position] = "O"
 end
 
 def valid_move?(board, position)
-  board[position] == " " && (position > 0 && position < 10)
+  board[position] == " " && (position >= 0 && position <= 8)
 end
-
 
 display_game_start
 
@@ -57,7 +56,6 @@ loop do
   prompt_player_move
   loop do
     position = player_position - 1
-    p board[position] == " " && (position > 0 && position < 10)
     if valid_move?(board, position)
       player_move(board, position)
       break
@@ -66,9 +64,13 @@ loop do
   end
 
   prompt_computer_move
-
-  computer_move(board)
-
+  loop do
+    computer_position = rand(0..8)
+    if valid_move?(board, computer_position)
+      computer_move(board, computer_position)
+      break
+    end
+  end
 
   display_board(board)
   break
