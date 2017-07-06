@@ -48,6 +48,10 @@ def valid_move?(board, position)
   board[position] == " " && (position >= 0 && position <= 8)
 end
 
+def board_full?(board)
+  !(board.include?(" "))
+end
+
 display_game_start
 
 loop do
@@ -63,6 +67,8 @@ loop do
     prompt("Enter a valid position")
   end
 
+  break if board_full?(board)
+  
   prompt_computer_move
   loop do
     computer_position = rand(0..8)
@@ -73,5 +79,6 @@ loop do
   end
 
   display_board(board)
-  break
+
+
 end
