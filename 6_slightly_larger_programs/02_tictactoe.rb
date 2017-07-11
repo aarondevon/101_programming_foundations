@@ -44,10 +44,22 @@ def player_places_piece!(brd)
   brd[square] = PLAYER_MARKER
 end
 
+def computer_places_piece!(brd)
+  square = empty_squares.brd.sample
+  brd[square] = COMPUTER_MARKER
+end
+
+def board_full?(brd)
+  empty_squares(brd).empty?
+end
+
 board = initialize_board
-
 display_board(board)
 
-player_places_piece!(board)
+loop do
+  player_places_piece!(board)
+  computer_places_piece!(board)
+  display_board(board)
 
-display_board(board)
+  break if someone_won? || board_full?
+end
