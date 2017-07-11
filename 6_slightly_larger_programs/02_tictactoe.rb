@@ -8,6 +8,7 @@ def prompt(msg)
 end
 
 def display_board(brd)
+  system 'clear'
   puts ""
   puts "     |     |     "
   puts "  #{brd[1]}  |  #{brd[2]}  |  #{brd[3]}"
@@ -45,12 +46,16 @@ def player_places_piece!(brd)
 end
 
 def computer_places_piece!(brd)
-  square = empty_squares.brd.sample
+  square = empty_squares(brd).sample
   brd[square] = COMPUTER_MARKER
 end
 
 def board_full?(brd)
   empty_squares(brd).empty?
+end
+
+def someone_won?(brd)
+  false
 end
 
 board = initialize_board
@@ -61,5 +66,7 @@ loop do
   computer_places_piece!(board)
   display_board(board)
 
-  break if someone_won? || board_full?
+  break if someone_won?(board) || board_full?(board)
 end
+
+display_board(board)
